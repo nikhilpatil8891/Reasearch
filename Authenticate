@@ -1,0 +1,110 @@
+package com.example.research;
+import android.os.Bundle;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Point;
+import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.Toast;
+
+@SuppressLint("NewApi")
+public class MainActivity extends Activity {
+
+  int width = 0;
+	int height = 0;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);		
+	    
+      setContentView(R.layout.activity_main);
+      Size();
+	    LinearLayout layout= (LinearLayout)findViewById(R.id.lay);
+	    
+	    LinearLayout.LayoutParams parametres = new LinearLayout.LayoutParams((width/3),(width/3));
+	    parametres.setMargins(0, 0, 0, 0);
+	    LinearLayout.LayoutParams margin = new LinearLayout.LayoutParams((width/3),(width/3));
+	    margin.setMargins( (width-((width/3))), 0, 0, 0);
+	       
+		Button contact = new Button(getApplicationContext());
+		contact.setText("Box 1");
+		contact.setBackgroundColor(Color.DKGRAY);
+		contact.setTextColor(Color.WHITE);
+	    contact.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+		
+		Toast.makeText(getApplicationContext(), "Thanks for your participation guyzz, please send the screenshot", Toast.LENGTH_LONG).show();
+		
+			}
+		});
+		
+	
+		
+		Button how = new Button(getApplicationContext());
+		how.setText("Box 2");
+		how.setBackgroundColor(Color.DKGRAY);
+		how.setTextColor(Color.WHITE);	
+		how.setOnClickListener(new View.OnClickListener() {
+			
+			
+			@Override
+			public void onClick(View arg0) {
+			
+		Toast.makeText(getApplicationContext(), "Thanks for your participation guyzz, please send the screenshot", Toast.LENGTH_LONG).show();
+				
+			}
+		});
+		
+		Button help = new Button(getApplicationContext());
+		help.setBackgroundColor(Color.DKGRAY);
+		help.setTextColor(Color.WHITE);
+	    help.setText("Box 3");
+		
+
+	    LinearLayout.LayoutParams last = new LinearLayout.LayoutParams((width/3),(width/3));
+	    last.setMargins((width-((width/3))), (height-(4*(width/3))) , 0, 0);
+	    
+	    Button setting = new Button(getApplicationContext());
+	    setting.setText("Box 4");
+		
+	    setting.setBackgroundColor(Color.DKGRAY);
+		setting.setTextColor(Color.WHITE);
+	    
+	    setting.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+			
+		Toast.makeText(getApplicationContext(), "Thanks for your participation guyzz, please send the screenshot", Toast.LENGTH_LONG).show();
+				
+			}
+		});
+	    
+	    layout.addView(contact,parametres);
+		layout.addView(how,margin);
+		layout.addView(help,parametres);
+		layout.addView(setting,last);
+	}
+
+
+   
+	
+	public void Size(){
+		
+		Point point = new Point();
+		
+		getWindowManager().getDefaultDisplay().getSize(point);
+		
+		width = point.x; // This is the width of the available screen
+		height = point.y-65;
+		
+		
+	}
+
+}
