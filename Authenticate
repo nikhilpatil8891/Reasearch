@@ -102,7 +102,7 @@ public class MainActivity extends Activity {
 		getWindowManager().getDefaultDisplay().getSize(point);
 		
 		width = point.x; // This is the width of the available screen
-		height = point.y-65;
+		height = point.y-(width/9);
 		
 		
 	}
